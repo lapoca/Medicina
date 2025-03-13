@@ -1,4 +1,3 @@
-//Declaración de librerias
 #include <iostream>
 #include <wchar.h>
 #include <locale.h>
@@ -6,7 +5,6 @@
 #include <fstream>
 #include <stdlib.h>
 using namespace std;
-//Declaración de clases
 class Menu
 {
 private:
@@ -22,7 +20,6 @@ public:
 	void mostrarInfo();
 
 };
-//Declaración de funciones
 static void error()
 {
 	cout << "Error al abrir el archivo" << endl;
@@ -35,7 +32,7 @@ void Menu::Menuprincipal()
 	{
 		fflush(stdin);
 		system("cls");
-		cout << "\t\t\t***Menú principal***\t\t\t\n" << endl;
+		cout << "\t\t\t***MenÃº principal***\t\t\t\n" << endl;
 		cout << "1. Ingresar datos" << endl;
 		cout << "2. Borrar Datos" << endl;
 		cout << "3. Listar Datos" << endl;
@@ -64,7 +61,7 @@ void Menu::Menuprincipal()
 			do
 			{
 				cout << "Opcion no valida" << endl;
-				cout << "Ingrese una opción valida" << endl;
+				cout << "Ingrese una opciÃ³n valida" << endl;
 				cin >> opc;
 				system("pause");
 				break;
@@ -75,7 +72,7 @@ void Menu::Menuprincipal()
 void Menu::setDatos()
 {
 	setlocale(LC_CTYPE, "spanish");
-	//Declaración de variables
+	//DeclaraciÃ³n de variables
 	ofstream escritura;
 	ifstream verificador;
 	char auxcode[30];
@@ -92,7 +89,7 @@ void Menu::setDatos()
 		if (strcmp(auxcode, "") == 0) {
 			do
 			{
-				cout << "\nEl campo no puede estar vacio, inténtalo de nuevo: " << endl;
+				cout << "\nEl campo no puede estar vacio, intÃ©ntalo de nuevo: " << endl;
 				cin.getline(auxcode, 30) >> auxcode;
 			} while (strcmp(auxcode, "") == 0);
 		}
@@ -134,7 +131,7 @@ void Menu::clearDatos() {
 	cout << "\t\t\t***Borrar datos***\t\t\t\n" << endl;
 	if (lectura.is_open() && auxiliar.is_open()) {
 		fflush(stdin);
-		cout << "Ingrese el nombre del paciente: (Con espacios y Mayúsculas) ";
+		cout << "Ingrese el nombre del paciente: (Con espacios y MayÃºsculas) ";
 		cin.getline(auxcode, 30) >> auxcode;
 		lectura >> Nombre;
 		while (!lectura.eof()) {
@@ -146,7 +143,7 @@ void Menu::clearDatos() {
 				cout << "Nombre del medicamento: " << NombreMed << endl;
 				cout << "Horario para tomar el medicamento: " << Horario << endl;
 				cout << "\n";
-				cout << "¿Desea borrar el registro de " << Nombre << "? (S/N): ";
+				cout << "Â¿Desea borrar el registro de " << Nombre << "? (S/N): ";
 				cin.getline(opc, 5) >> opc;
 				if (strcmp(opc, "s") == 0 || strcmp(opc, "S") == 0 || strcmp(opc, "si") == 0 || strcmp(opc, "Si") == 0 || strcmp(opc, "SI") == 0 || strcmp(opc, "sI") == 0) {
 					cout << "Registro borrado correctamente" << endl;
@@ -246,7 +243,7 @@ void comprobarArchivo()
 	archivo.open("Medicinas.txt", ios::in);
 	if (!archivo.is_open())
 	{
-		cout << "¡No se pudo abrir el archivo de registros o aún no se ha registrado ningun cliente!";
+		cout << "Â¡No se pudo abrir el archivo de registros o aÃºn no se ha registrado ningun cliente!";
 		cout << "\n\n";
 		cout << "Para crear el archivo de registros selecciona la opcion de dar de alta un cliente.";
 		cout << "\n";
